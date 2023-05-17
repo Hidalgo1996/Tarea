@@ -1,25 +1,32 @@
-import { Component } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import { Personas } from 'src/app/models/personas';
+import { Component, OnInit } from '@angular/core';
+import { Personas } from 'src/app/models/Personas';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-cuerpo',
   templateUrl: './cuerpo.component.html',
   styleUrls: ['./cuerpo.component.css']
 })
-export class CuerpoComponent {
+export class CuerpoComponent implements OnInit {
+  form!: FormGroup;
   cedula ="";
   nombre ="";
   apellido ="";
   fechaNacimiento ="";
   listaPersonas: Personas[] = [];
-  form: FormGroup;
+  
 
   ngOnInit(): void{
-
+    this.form = new FormGroup({
+      cedula: new FormControl('', Validators.required),
+      nombre: new FormControl('', Validators.required),
+      apellido: new FormControl('', Validators.required),
+      fechaNacimiento: new FormControl('', Validators.required)
+    })
   }
-
-  agregarPersona():void{
+  
+  agregarPersona(){
     const personas: Personas = {
       cedula: this.form.value.cedula,
       nombre: this.form.value.nombre,
@@ -28,5 +35,6 @@ export class CuerpoComponent {
       estado: true,
     }
     this.listaPersonas.push(personas);
+    console.log(personas);
   }
 }

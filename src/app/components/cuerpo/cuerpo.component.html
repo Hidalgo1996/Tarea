@@ -1,3 +1,34 @@
-<form [formGroup]="form" (ngSubmit) = "agregarPersona()">
-    
+
+<form [formGroup]="form" (ngSubmit)="agregarPersona()">
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="form-group form-floating mb-3">
+                <input type="text" formControlName="cedula" class="form-control form-control-lg" id="cedula">
+                <label for="cedula" class="form-floating"> Cédula: </label>
+
+                <label for="cedula"> Nombre: </label>
+                <input type="text" formControlName="nombre" class="form-control form-control-lg" id="cedula">
+
+                <label for="cedula"> Apellido: </label>
+                <input type="text" formControlName="apellido" class="form-control form-control-lg" id="cedula">
+                
+                <label for="cedula"> Fecha de Nacimiento: </label>
+                <input type="text" formControlName="fechaNacimiento" class="form-control form-control-lg" id="cedula">
+
+                <button class="btn btn-success" type="submit">Agregar</button>
+            </div>
+        </div>
+        
+        <div class="cd" style="display: flex;">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" identificaciónentificación="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput"> Cédula</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" identificaciónentificación="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput"> Cédula</label>
+            </div>
+        </div>
+        
+    </div>
 </form>
