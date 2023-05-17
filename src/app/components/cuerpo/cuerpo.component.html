@@ -1,34 +1,81 @@
-
-<form [formGroup]="form" (ngSubmit)="agregarPersona()">
+<!--
+<form [formGroup]="form" (ngSubmit)="agregarPersona()" class="container mt-5">
     <div class="row">
-        <div class="col-lg-3">
-            <div class="form-group form-floating mb-3">
-                <input type="text" formControlName="cedula" class="form-control form-control-lg" id="cedula">
-                <label for="cedula" class="form-floating"> Cédula: </label>
+      <div class="col-md-3">
+        <input type="text" formControlName="cedula" class="form-control form-control-lg" id="cedula"
+          placeholder="Cédula">
+      </div>
+      <div class="col-md-3">
+        <input type="text" formControlName="nombre" class="form-control form-control-lg" id="nombre"
+          placeholder="Nombre">
+      </div>
+      <div class="col-md-3">
+        <input type="text" formControlName="apellido" class="form-control form-control-lg" id="apellido"
+          placeholder="Apellido">
+      </div>
+      <div class="col-md-3">
+        <input type="text" formControlName="fechaNacimiento" class="form-control form-control-lg" id="fechaNacimiento"
+          placeholder="Fecha de Nacimiento">
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-md-3">
+        <button class="btn btn-success" type="submit">Agregar</button>
+      </div>
+    </div>
+  </form>-->
+  <form [formGroup]="form" (ngSubmit)="agregarPersona()" class="container mt-5">
+    <div class="container mt-5">
+        <div class="row">
 
-                <label for="cedula"> Nombre: </label>
-                <input type="text" formControlName="nombre" class="form-control form-control-lg" id="cedula">
-
-                <label for="cedula"> Apellido: </label>
-                <input type="text" formControlName="apellido" class="form-control form-control-lg" id="cedula">
+            <h2> Ingrese sus datos: </h2><br>
+            <div class="input-group">
+                <input type="text" formControlName="cedula" class="form-control form-control-lg"
+                id="cedula" placeholder=" Cédula">
                 
-                <label for="cedula"> Fecha de Nacimiento: </label>
-                <input type="text" formControlName="fechaNacimiento" class="form-control form-control-lg" id="cedula">
+                <input type="text" formControlName="nombre" class="form-control form-control-lg"
+                id="nombre" placeholder=" Nombres">
 
+                <input type="text" formControlName="apellido" class="form-control form-control-lg"
+                id="apellido" placeholder=" Apellidos">
+
+                <input type="text" formControlName="fechaNacimiento" class="form-control form-control-lg"
+                id="fechaNacimiento" placeholder=" fecha de Nacimiento">
+                
+                
                 <button class="btn btn-success" type="submit">Agregar</button>
             </div>
-        </div>
-        
-        <div class="cd" style="display: flex;">
-            <div class="form-floating mb-3">
-                <input type="text" class="form-control" identificaciónentificación="floatingInput" placeholder="name@example.com">
-                <label for="floatingInput"> Cédula</label>
+
+
+            
+            <div class="col-lg-6 offset-lg-3 mt-3">
+                <h4> Listado de estudiantes</h4>
+                <div *ngIf="listaPersonas.length===0" class="custom-alert">
+                    <h6 style="text-align: center;">No hay Estudiantes registrados...</h6>
+                </div>
             </div>
-            <div class="form-floating mb-3">
-                <input type="text" class="form-control" identificaciónentificación="floatingInput" placeholder="name@example.com">
-                <label for="floatingInput"> Cédula</label>
-            </div>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col"> #</th>
+                        <th scope="col"> Cédula</th>
+                        <th scope="col"> Nombre</th>
+                        <th scope="col"> Apellido</th>
+                        <th scope="col"> Fecha de Nacimiento</th>
+                    </tr>
+                </thead>
+                <tbody> 
+                    <tr *ngFor="let estudiante of listaPersonas let i=index">
+                        <th>{{ i + 1 }}</th>
+                        <th>{{estudiante.cedula}}</th>
+                        <th>{{estudiante.nombre}}</th>
+                        <th>{{estudiante.apellido}}</th>
+                        <th>{{estudiante.fechaNacimiento}}</th>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        
     </div>
 </form>
+  

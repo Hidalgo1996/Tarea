@@ -1,3 +1,21 @@
-.form-group{
-    display: flex;
+th{
+    text-align: center;
 }
+h4{
+    margin-top: 50px;
+    text-align: center;
+}
+.custom-alert {
+    position: fixed;
+    top: 10%;
+    right: 0;
+    width: 200px;
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    text-align: center;
+  }
+  
+  
